@@ -1,0 +1,450 @@
+$white: #FFFFFF;
+$white60: rgb(255, 255, 255, 0.6);
+$white35: rgb(255, 255, 255, 0.35);
+$white30: rgb(255, 255, 255, 0.3);
+$green: #5E7600;
+$black: #000000;
+
+@font-face {
+    font-family: 'Actay';
+    src: url('../assets/fonts/Actay/Actay-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+  
+  @font-face {
+    font-family: 'Actoy';
+    src: url('../assets/fonts/Actay/ActayWide-Bold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: $white;
+    cursor: pointer;
+}
+
+button{
+    cursor: pointer;
+}
+
+html,
+body{
+    overflow-x: hidden;
+}
+.burger-wrap.active{
+    opacity: 1;
+    visibility: visible;
+}
+.burger-wrap{
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    visibility: hidden;
+    background: rgb(0, 0, 0, 0.56);
+    z-index: 9999;
+    opacity: 0;
+    transition: .25s ease;
+    .head{
+        display: flex;
+        align-items: center;
+        gap: 21px;
+        width: 100%;
+        justify-content: flex-end;
+        p{
+            font-size: 12px;
+        }
+        button{
+            background: none;
+            border: none;
+            padding: 11px;
+        }
+    }
+    .burger-menu{
+        background: $white;
+        padding: 30px 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        nav{
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+            width: 100%;
+            ul{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+                li{
+                    a{
+                        line-height: 46%;
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: $black;
+                    }
+                    transition: transform .3s ease;
+                    &:hover{
+                        transform: scale(1.05);
+                    }
+                }
+            }
+        }
+        .link{
+            height: auto;
+            display: flex;
+            max-width: 162px;
+            width: 100%;
+            gap: 20px;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            transition: transform .3s ease;
+            &::before{
+                content: "";
+                position: absolute;
+                width: 100%;
+                left: 0;
+                bottom: -5px;
+                height: 1px;
+                background: $black;
+                transition: width .3s ease;
+            }
+            &:hover::before{
+                width: 0%;
+            }
+            &:hover{
+                transform: scale(1.05);
+            }
+            p{
+                color: $white;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 46%;
+                text-transform: uppercase;
+                text-wrap: nowrap;
+                color: $black; 
+            }
+        }
+    }
+}
+
+
+body{
+    font-family: 'Actay', sans-serif;
+    min-height: 100vh;
+    background: url(../assets/img/bg.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 15px;
+}
+
+header{
+    max-width: 1140px;
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+    @media (max-width: 860px) {
+        margin-top: 30px;
+    }
+    #burger-button{
+        background: none;
+        border: none;
+        padding: 9px;
+        @media (min-width: 860px) {
+            display: none;
+        }
+    }
+    .left-side{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 641px;
+        width: 100%;
+        gap: 20px;
+        .logo-a{
+            .logo-img{
+                width: 100%;
+            }
+        }
+        nav{
+            max-width: 449px;
+            width: 100%;
+            ul{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                gap: 15px;
+                li{
+                    a{
+                        line-height: 46%;
+                        font-size: 20px;
+                        font-weight: 400;
+                    }
+                    transition: transform .3s ease;
+                    &:hover{
+                        transform: scale(1.05);
+                    }
+                }
+            }
+            @media (max-width: 860px) {
+                display: none;
+            }
+        }
+    }
+    .link{
+        height: auto;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        cursor: pointer;
+        position: relative;
+        transition: transform .3s ease;
+        &::before{
+            content: "";
+            position: absolute;
+            width: 100%;
+            left: 0;
+            bottom: -5px;
+            height: 1px;
+            background: $white;
+            transition: width .3s ease;
+        }
+        &:hover::before{
+            width: 0%;
+        }
+        &:hover{
+            transform: scale(1.05);
+        }
+        p{
+            color: $white;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 46%;
+            text-transform: uppercase;
+            text-wrap: nowrap;
+        }
+        @media (max-width: 860px) {
+            display: none;
+        }
+    }
+}
+
+main{
+    width: 100%;
+    max-width: 1140px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .main-text{
+        color: $white;
+        font-size: 90px;
+        font-weight: 600;
+        text-align: center;
+        @media (max-width: 640px) {
+            font-size: 35px;
+        }
+    }
+    .road-map{
+        margin-top: 48px;
+        width: 1140px;
+        position: relative;
+        transition: transform .15s ease-in-out;
+        @media (max-width: 1200px) {
+            transform: scale(0.9);
+        }
+    
+        @media (max-width: 1050px) {
+          transform: scale(0.8);
+        }
+    
+        @media (max-width: 950px) {
+          transform: scale(0.7);
+        }
+    
+        @media (max-width: 860px) {
+          display: none;
+        }
+        .card{
+            max-width: 291px;
+            width: 100%;
+            min-height: 89px;
+            border: $white 3px solid;
+            border-radius: 35px 0px 35px 0px;
+            box-shadow: 0px 4px 15px $white35;
+            background: $white30;
+            backdrop-filter: blur(10px);
+            position: absolute;
+            padding: 14px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            &:nth-of-type(1){
+                top: 0;
+                left: 0;
+            }
+            &:nth-of-type(2){
+                top: 245px;
+                left: 77px;
+            }
+            &:nth-of-type(3){
+                top: 360px;
+                left: 427px;
+            }
+            &:nth-of-type(4){
+                top: 121px;
+                left: 355px;
+            }
+            &:nth-of-type(5){
+                top: 49px;
+                right: 0;
+            }
+            &:nth-of-type(6){
+                top: 205px;
+                right: 139px;
+            }
+            .pipka{
+                position: absolute;
+                right: -29px;
+                top: -24px;
+            }
+            .number{
+                min-width: 51px;
+                height: 51px;
+                background: $green;
+                border-radius: 100%;
+                border: 1px $white solid;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                svg{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+            p{
+                color: $white;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 130%;
+            }
+        }
+        .road{
+            position: absolute;
+            z-index: -1;
+            &:nth-of-type(1){
+                top: 69px;
+                left: 36px;
+            }
+            &:nth-of-type(2){
+                top: 316px;
+                left: 270px;
+            }
+            &:nth-of-type(3){
+                top: 201px;
+                left: 460px;
+            }
+            &:nth-of-type(4){
+                top: 62px;
+                right: 242px;
+            }
+            &:nth-of-type(5){
+                top: 116px;
+                right: -18px;
+            }
+        }
+    }
+}
+.slider{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media (min-width: 860px) {
+        display: none;
+    }
+}
+.slider-card{
+    margin-top: 30px;
+    max-width: 290px;
+    width: 100%;
+    min-height: 217px;
+    border: $white 3px solid;
+    border-radius: 35px 0px 35px 0px;
+    box-shadow: 0px 4px 15px $white35;
+    background: $white30;
+    backdrop-filter: blur(10px);
+    position: relative;
+    padding: 44px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    .pipka{
+        position: absolute;
+        right: -29px;
+        top: -24px;
+    }
+    .number{
+        min-width: 74px;
+        height: 74px;
+        background: $green;
+        border-radius: 100%;
+        border: 1px $white solid;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 37px;
+        color: $white;
+        font-weight: 400;
+    }
+    .text {
+        color: $white;
+        font-size: 14px;
+        line-height: 130%;
+        font-weight: 400;
+    }
+}
+.slider-nav {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    gap: 12px;
+    width: 100%;
+    max-width: 290px;
+    padding: 3px 0px;
+    .arrow {
+        cursor: pointer;
+        user-select: none;
+        color: $white;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+}
